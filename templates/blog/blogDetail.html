@@ -9,10 +9,11 @@
 
     <h2 class="amount">amount of posts: {{ blogs|length }}</h2>
     <h2 class="amount">amount of users: {{ users|length }}</h2>
-    
+
     <hr>
 
     <div class="wrapper">
+        <a href="{% url 'blogs' %}">Home</a>
         <h3>#{{ blog.title }}</h3>
         <span>author: {{ blog.author }}</span> |
         <span>date: {{ blog.create_time|date:"d/m/Y" }} {{ blog.create_time|time:"h:i a" }}</span>

@@ -32,11 +32,13 @@ class BlogListView(View):
 class BlogDetailView(View):
     
     def get(self, request, id):
-        blog = Blog.objects.get(id)
+        blogs = Blog.objects.all()
         users = User.objects.all()
+        blog = Blog.objects.get(id=id)
         context = {
-            'blogs' : blog,
-            'users' : users
+            'blogs' : blogs,
+            'users' : users,
+            'blog' : blog
         }
         return render(request, 'blog/blogDetail.html', context)
 

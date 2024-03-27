@@ -14,12 +14,12 @@
 
     {% for blog in blogs|dictsort:"create_time" %}
         <div class="wrapper">
-            <h3><a href="">#{{ blog.title }}</a></h3>
+            <h3><a href="{% url 'detail' blog.id %}">#{{ blog.title }}</a></h3>
             <span>author: {{ blog.author }}</span> |
             <span>date: {{ blog.create_time|date:"d/m/Y" }} {{ blog.create_time|time:"h:i a" }}</span>
-            <p>{{ blog.body|truncatewords:12 }} <a href="">(read more)</a></p>
+            <p>{{ blog.body|truncatewords:12 }} <a href="{% url 'detail' blog.id  %}">(read more)</a></p>
         </div>
     {% endfor %}
-    
+
 </body>
 </html>

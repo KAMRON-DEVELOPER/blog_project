@@ -10,7 +10,7 @@ def blog_list(request):
     context = {
             'blogs' : blogs
         }
-    return HttpResponse(content=context)
+    return render(request, 'blog/blogList.html', context)
 
 
 class BlogListView(View):
@@ -20,8 +20,15 @@ class BlogListView(View):
         context = {
             'blogs' : blogs
         }
-        return render(request, 'blog/blogList.html')
+        return render(request, 'blog/blogList.html', context)
         
 
-
+class BlogListView(View):
+    
+    def get(self, request):
+        blogs = Blog.objects.all()
+        context = {
+            'blogs' : blogs
+        }
+        return render(request, 'blog/blogList.html', context)
 
